@@ -1,10 +1,79 @@
 {% extends 'base.html' %}
+<!-- {% load static %} -->
 
 {% block content %}
-    {% for post in object_list %}
+    {% for post in post %}
         <div class="post_entry">
             <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
             <p>{{post.body}}</p>
         </div>
     {% endfor %}
+
+    
+
+
+
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if post.has_next %}
+                <a class="btn btn-primary float-right" href="?page={{post.next_page_number}}">&larr; Old posts</a>
+            {% endif %}
+            
+            
+            <span class="current">
+                | Page {{ post.number }} of {{ post.paginator.num_pages }} |
+            </span>
+
+            {% if post.has_previous %}
+                <a class="btn btn-primary float-right" href="?page={{post.previous_page_number}}">New posts &rarr;</a>
+            {% endif %}
+        </span>
+    </div>       
+
+
+    <!-- {% url 'home' %}?page={{page_obj.previous_page_number}} -->
+    <!-- {% url 'home' %}?page={{page_obj.next_page_number}} -->
+
+
+
+    <!-- <div class="pagination">
+        <span class="step-links">
+            {% if 'page_obj.has_previous' %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if 'page_obj.has_next' %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div> -->
+
+
+
+
+
+
+
+
+    <!-- <div class="pagination">
+        
+      {% if page_obj.has_previous %}
+        <a class="btn btn-primary float-right" href="#">new posts &rarr;</a>
+      {% endif %}
+
+
+      {% if page_obj.has_next %}
+        <a class="btn btn-primary float-right" href="#">old posts &larr;</a>
+      {% endif %}
+        
+    </div> -->
+
 {% endblock content %}
+
