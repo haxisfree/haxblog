@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.html import format_html
 # Create your models here.
 
 
@@ -11,7 +12,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=100, unique=True)
     body = models.TextField()
-    #image = models.imagefields()
+    cover = models.ImageField(upload_to='covers/', blank=True)
     pubdate = models.DateTimeField(default = timezone.now)
     year = models.IntegerField ()
     author = models.CharField(max_length=100)
@@ -26,7 +27,8 @@ class Post(models.Model):
     # )
 
 
-
+    def covers(self):
+        return format_html("<img width=80 height=110 style='border-radious: 5px' src='{}'>".format(self.cover.url))
    
 
     def __str__(self):

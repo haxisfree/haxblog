@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Post
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'pubdate', 'category', 'status')
+    list_display = ('title', 'covers', 'slug', 'pubdate', 'category', 'status')
     list_filter = ('category', 'status')
     search_fields = ('title', 'body')
     ordering = ['status', 'pubdate']
