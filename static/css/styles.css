@@ -1,0 +1,244 @@
+@font-face {
+    font-family: iransans;
+    src: url('fonts/IRANSans.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: aviny;
+    src: url('fonts/Aviny.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: iransans;
+    direction: rtl;
+    background-color: #010a1b;
+}
+
+input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* base styles */
+
+#menu {
+    font-family: iransans;
+    padding: 10px 0;
+    position: fixed;
+    top: 54px;
+    bottom: 0;
+    width: 300px;
+    right: -300px;
+    line-height: 270%;
+    transition: 0.3s;    
+    z-index: 1;
+    overflow: auto;
+}
+#menu a {
+    display: block;
+    color: white;
+    padding: 0 15px;
+}
+
+#menu a:hover {
+    border-bottom: 3px solid #2eb9e5;
+}
+
+#menu a.active {
+    border-bottom: 3px solid #2eb9e5;
+}
+
+#menu .submenu a {
+    padding-right: 30px;
+    font-size: 14px;
+}
+
+#menu .submenu {
+    display: none;
+    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 3px #2eb9e5;
+}
+
+#copyright {
+    background-color: gray;
+    padding: 20px 0;
+}
+#copyright p{
+    font-size: 14px;
+    text-align: center;
+    margin: 1px 0;
+}
+#last-post{
+    text-align: center;
+}
+#last-post a{
+    color: black;
+}
+#footer{
+    background-color: gray;
+    padding: 40px 0 60px 0;
+}
+#contact{
+    text-align: center;
+}
+.phone{
+    direction: ltr;
+}
+.mail{
+    direction: ltr;
+}
+.previousnext {
+    background-color: #999999;
+    color: black;
+    border-radius: 50%;
+    padding: 8px 16px;
+    
+}
+.pagination{
+    direction: ltr;
+    display: block;
+    text-align: center;
+    margin: 100px auto;
+}
+.pagination a{
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+}
+.pagination a.active {
+    background-color: #2eb9e5;
+    box-shadow: 0 0 3px #2eb9e5;
+    border-radius: 20px;
+}
+.pagination a:hover{ color: #2eb9e5;}
+
+
+
+#articles{
+    padding: 100px;
+
+}
+.article { 
+    box-shadow: 0 0 3px #2eb9e5;
+    margin: 20px;
+    height: 500px;
+
+}
+.article a{
+    color:#010a1b;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width: 720px) {
+    #logo {
+        display:block;
+        text-align: center;
+        padding-top: 10px;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width: 960px) {
+    #header {
+        padding-top: 0;
+    }
+    #menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        font-size:15px;
+        background-color:#010a1b;
+    }
+    #menu .plus {
+        display: none;
+    }
+    #menu > ul {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    #menu .item {
+        float: right;
+    }    
+    #menu a {
+        border: none;
+        padding: 0 20px;
+        border-bottom: 3px solid #010a1b;
+    }
+    #menu a:hover {
+        background-color: transparent;
+    }
+    #menu li:hover > ul {
+        display: block !important;
+    }
+    #menu .submenu {
+        width: 150px;
+        position: absolute;
+        border: 3px solid #010a1b;;
+        border-radius: 0 0 5px 5px ;
+        border-top: none;
+        background-color: #010a1b;;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index:1;
+        line-height:240%;
+    }
+    #menu .subitem {
+        position: relative;
+        
+    }
+    #menu .submenu .submenu {
+        top: -1px;
+        right: 100%;
+        background-color: #f3fff3;
+    }    
+    #menu .subitem a {
+        padding: 0 15px !important;
+    }   
+    #menu .subitem a:hover {
+       border-bottom: 3px solid #2eb9e5;
+       background-color: #2eb9e5;
+    }  
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width: 1140px) {
+    main > div{
+        display:flex;
+    }
+    main > div > div{
+        order:2;
+    }
+}
+
+/*.wrapper{
+    width:360px;
+}
+@media screen and (min-width: 720px) {
+    .wrapper{
+        width:720px;
+    }
+}
+@media screen and (min-width: 960px) {
+    .wrapper{
+        width:960px;
+    }
+}
+@media screen and (min-width: 1140px) {
+    .wrapper{
+        width:1140px;
+    }
+}
+@media screen and (min-width: 1280px) {
+    .wrapper{
+        width:1280px;
+    }
+}*/

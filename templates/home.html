@@ -1,35 +1,46 @@
 {% extends 'base.html' %}
 <!-- {% load static %} -->
-
 {% block content %}
+
+    <div id="articles" class="col-md-12">
     {% for post in post %}
-        <div class="post_entry">
-            <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
-            <p>{{post.body}}</p>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="article">
+                <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
+            </div>
         </div>
     {% endfor %}
+    </div>
 
-    
-
-
-
+    <br>
+    <br>
 
     <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active" href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+    </div>
+    <!-- <div class="pagination">
         <span class="step-links">
             {% if post.has_next %}
-                <a class="btn btn-primary float-right" href="?page={{post.next_page_number}}">&larr; Old posts</a>
+                <a class="previousnext" href="?page={{post.next_page_number}}">&#8249</a>
             {% endif %}
             
             
             <span class="current">
-                | Page {{ post.number }} of {{ post.paginator.num_pages }} |
+                &nbsp; Page {{ post.number }} of {{ post.paginator.num_pages }} &nbsp;
             </span>
 
             {% if post.has_previous %}
-                <a class="btn btn-primary float-right" href="?page={{post.previous_page_number}}">New posts &rarr;</a>
+                <a class="previousnext" href="?page={{post.previous_page_number}}">&#8250</a>
             {% endif %}
         </span>
-    </div>       
+    </div>        -->
 
 
     <!-- {% url 'home' %}?page={{page_obj.previous_page_number}} -->
