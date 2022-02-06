@@ -6,7 +6,13 @@
     {% for post in post %}
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="article">
-                <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
+                <h2><a href="{% url 'post_detail' post.pk %}">
+                    
+                    {% if post.cover %}  
+                    <img class="bookcover" src="{{ post.cover.url }}" alt="{{ post.title }}">
+                    {% endif %}   
+                    
+                </a></h2>
             </div>
         </div>
     {% endfor %}
@@ -15,7 +21,10 @@
     <br>
     <br>
 
-    <div class="pagination">
+
+    <!-- start of pagination -->
+
+    <!-- <div class="pagination">
         <a href="#">&laquo;</a>
         <a href="#">1</a>
         <a class="active" href="#">2</a>
@@ -24,67 +33,60 @@
         <a href="#">5</a>
         <a href="#">6</a>
         <a href="#">&raquo;</a>
-    </div>
-    <!-- <div class="pagination">
-        <span class="step-links">
-            {% if post.has_next %}
-                <a class="previousnext" href="?page={{post.next_page_number}}">&#8249</a>
-            {% endif %}
-            
-            
-            <span class="current">
-                &nbsp; Page {{ post.number }} of {{ post.paginator.num_pages }} &nbsp;
-            </span>
-
-            {% if post.has_previous %}
-                <a class="previousnext" href="?page={{post.previous_page_number}}">&#8250</a>
-            {% endif %}
-        </span>
-    </div>        -->
-
-
-    <!-- {% url 'home' %}?page={{page_obj.previous_page_number}} -->
-    <!-- {% url 'home' %}?page={{page_obj.next_page_number}} -->
-
-
-
-    <!-- <div class="pagination">
-        <span class="step-links">
-            {% if 'page_obj.has_previous' %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-    
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-    
-            {% if 'page_obj.has_next' %}
-                <a href="?page={{ page_obj.next_page_number }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
     </div> -->
 
 
 
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        {% if post.has_previous %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ post.previous_page_number }}">&laquo;</a>
+          </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">&laquo;</a>
+          </li>
+        {% endif %}
+
+        {% if post.number|add:'-4' > 1 %}
+            <li class="page-item"><a class="page-link" href="?page={{ post.number|add:'-5' }}">&hellip;</a></li>
+        {% endif %}
+
+        {% for i in post.paginator.page_range %}
+            {% if post.number == i %}
+            <div class='pagination'>    
+                <li class="page-item active" aria-current="page">
+                <span class="page-link">
+                    <a class="active">{{ i }}</a>
+                </span>
+                </li>
+            </div>
+            {% elif i > post.number|add:'-5' and i < post.number|add:'5' %}
+                 <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        {% if post.paginator.num_pages > post.number|add:'4' %}
+           <li class="page-item"><a class="page-link" href="?page={{ post.number|add:'5' }}">&hellip;</a></li>
+        {% endif %}
+
+        {% if post.has_next %}
+            <li class="page-item">
+            <a class="page-link" href="?page={{ post.next_page_number }}">&raquo;</a>
+          </li>
+        {% else %}
+            <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">&raquo;</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav> -->
+
+    <!-- end of pagination -->
 
 
 
-
-
-    <!-- <div class="pagination">
-        
-      {% if page_obj.has_previous %}
-        <a class="btn btn-primary float-right" href="#">new posts &rarr;</a>
-      {% endif %}
-
-
-      {% if page_obj.has_next %}
-        <a class="btn btn-primary float-right" href="#">old posts &larr;</a>
-      {% endif %}
-        
-    </div> -->
 
 {% endblock content %}
 
