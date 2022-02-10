@@ -2,21 +2,63 @@
 
 <html>
     <head>
-        <title>Django Blog</title>
+        <title>Hax Blog</title>
+        <meta charset="utf-8" />
+        <link href="{% static 'css/grids.css' %}"rel="stylesheet" />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="jquery.js"></script>
+        <script>
+            
+        </script>
     </head>
-    <bod>
-        <header>
-            <h1><a href="{% url 'home' %}">Django blog</a></h1>
-        </header>
-
-        <div>
+    <body>
+            <nav id="menu">
+                <ul>
+                    <li class="item">
+                        <a href="#">خانه</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">دوره های آموزشی</a>
+                        <ul class="submenu">
+                            <li class="subitem">
+                                <a href="#">ویدیویی</a>
+                            </li>
+                            <li class="subitem">
+                                <a href="#">آنلاین</a>
+                            </li>
+                            <li class="subitem">
+                                <a href="#">حضوری</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item">
+                        <a href="{% url 'home' %}" class="active">کتاب ها و مقالات</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">دانلودسنتر</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">درباره ما</a>
+                        <ul class="submenu">
+                            <li class="subitem">
+                                <a href="#">معرفی و اهداف</a>
+                            </li>
+                            <li class="subitem">
+                                <a href="#">سوالات متداول</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item">
+                        <a href="#">ارتباط با ما</a>
+                    </li>
+                </ul>
+            </nav>  
             {% block content %}
 
             {% endblock content %}
-                </span>
-            </div>
-        </div>
-    </bod>
+            
+    </body>
 </html>
 
