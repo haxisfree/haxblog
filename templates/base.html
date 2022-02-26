@@ -6,14 +6,13 @@
         <meta charset="utf-8" />
         <link href="{% static 'css/grids.css' %}"rel="stylesheet" />
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="jquery.js"></script>
-        <script>
-            
-        </script>
+
     </head>
     <body>
+
+            <!-- start of header -->
+
             <nav id="menu">
                 <ul>
                     <li class="item">
@@ -55,10 +54,53 @@
                     </li>
                 </ul>
             </nav>  
+
+            <!-- end of header -->
+
+
             {% block content %}
 
             {% endblock content %}
-            
+
+
+            <!-- start of footer -->
+
+            <footer>
+                    <div class="col-xs-12 col-md-4">
+                        <div id="footer-logo">
+                            <img src="static/pic/HaxBlog.png" alt="" width="270px" style="opacity: 85%;">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 footer-column" >
+                        <h3>مقالات محبوب</h3>
+                        <ul>
+                            <li>A Survey on Wearable Technology</li>
+                            <li>5G network slicing using SDN and NFV</li>
+                            <li>A compilation of UAV applications for precision agriculture</li>
+                            <li>A Survey on Wearable Technology</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-4 footer-column">
+                        <h3>ارتباط با ما</h3>
+                        <ul style="list-style-type: none;">
+                            <li style="list-style-type: none;">ایمیل: &nbsp; haxip@yahoo.com</li>
+                            <li style="list-style-type: none;">شماره تماس: &nbsp; ۰۹۱۰۲۸۳۹۴۴۶</li>
+                        </ul>
+                        <br>
+                        <div>
+                            <a href="#" class="media"><img src="static/pic/instagram.png" alt="instagram" width="40px" class="media"></a>
+                            <a href="#" class="media" ><img src="static/pic/youtube.png" alt="youtube" width="40px" class="media"></a>
+                            <a href="#" class="media"><img src="static/pic/linkedin.png" alt="linkedin" width="40px" class="media"></a>
+                            <a href="#" class="media"><img src="static/pic/telegram.png" alt="telegram" width="40px" class="media"></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-12" id="copy-right">
+                        <p>© 2022 Hax Blog. All Rights Reserved</p>
+                    </div>
+            </footer>
+
+            <!-- end of footer -->
+
     </body>
 </html>
 

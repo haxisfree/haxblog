@@ -1,14 +1,35 @@
 {% extends 'base.html' %}
 <!-- {% load static %} -->
 {% block content %}
+<br>
+<header id="header">
+    <div class="wrapper">
+        <div class="row">
+            <div class="col-xs-12 col-sm-7">
+                <img src="static/pic/BOOK-LOGO.png" width="650px" />
+            </div>
+            <div class="col-xs-12 col-sm-5">
+                <h1>کتاب ها و مقالات</h1>
+                <p>
+                    در این بخش می توانید به روزترین کتاب ها و مقالات را در حوزه فناوری اطلاعات و شبکه های کامپیوتری پیدا کنید.
+                </p>
+                <br>
+                <br>
+                <form class="search" action="" style="margin:auto;max-width:450px">
+                    <input type="text" placeholder="هر چی دوست داری بپرس..." name="search">
+                    <button type="submit"><img src="static/pic/search.png" alt="" width="26px"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- start of articles -->
 
     <div id="articles" class="col-md-12">
     {% for post in post %}
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="article">
-<<<<<<< HEAD
-                <h2><a href="{% url 'post_detail' post.pk %}">{{post.title}}</a></h2>
-=======
                 <h2><a href="{% url 'post_detail' post.pk %}">
                     
                     {% if post.cover %}  
@@ -16,114 +37,48 @@
                     {% endif %}   
                     
                 </a></h2>
->>>>>>> 292ec958fa8ab31e2459cbaa5d8c94a6cfe9e60f
             </div>
         </div>
     {% endfor %}
     </div>
 
-    <br>
-    <br>
-<<<<<<< HEAD
+    <!-- end of articles -->
 
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-    </div>
-    <!-- <div class="pagination">
-        <span class="step-links">
-            {% if post.has_next %}
-                <a class="previousnext" href="?page={{post.next_page_number}}">&#8249</a>
-            {% endif %}
-            
-            
-            <span class="current">
-                &nbsp; Page {{ post.number }} of {{ post.paginator.num_pages }} &nbsp;
-            </span>
-
-            {% if post.has_previous %}
-                <a class="previousnext" href="?page={{post.previous_page_number}}">&#8250</a>
-            {% endif %}
-        </span>
-    </div>        -->
-
-
-    <!-- {% url 'home' %}?page={{page_obj.previous_page_number}} -->
-    <!-- {% url 'home' %}?page={{page_obj.next_page_number}} -->
-=======
->>>>>>> 292ec958fa8ab31e2459cbaa5d8c94a6cfe9e60f
 
 
     <!-- start of pagination -->
 
-    <!-- <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#">1</a>
-        <a class="active" href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <a href="#">6</a>
-        <a href="#">&raquo;</a>
-    </div> -->
-
-
-
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
+    <div class="pagination">
         {% if post.has_previous %}
-            <li class="page-item">
-            <a class="page-link" href="?page={{ post.previous_page_number }}">&laquo;</a>
-          </li>
+            <a href="?page={{ post.previous_page_number }}">&laquo;</a>
         {% else %}
-            <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">&laquo;</a>
-          </li>
+            <a class="disabled" href="#" tabindex="-1" aria-disabled="True">&laquo;</a>
         {% endif %}
 
         {% if post.number|add:'-4' > 1 %}
-            <li class="page-item"><a class="page-link" href="?page={{ post.number|add:'-5' }}">&hellip;</a></li>
+           <a class="page-link" href="?page={{ post.number|add:'-5' }}">&hellip;</a>
         {% endif %}
 
         {% for i in post.paginator.page_range %}
             {% if post.number == i %}
-            <div class='pagination'>    
-                <li class="page-item active" aria-current="page">
-                <span class="page-link">
                     <a class="active">{{ i }}</a>
-                </span>
-                </li>
-            </div>
             {% elif i > post.number|add:'-5' and i < post.number|add:'5' %}
-                 <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
             {% endif %}
         {% endfor %}
 
         {% if post.paginator.num_pages > post.number|add:'4' %}
-           <li class="page-item"><a class="page-link" href="?page={{ post.number|add:'5' }}">&hellip;</a></li>
+            <a class="page-link" href="?page={{ post.number|add:'5' }}">&hellip;</a>
         {% endif %}
 
         {% if post.has_next %}
-            <li class="page-item">
             <a class="page-link" href="?page={{ post.next_page_number }}">&raquo;</a>
-          </li>
         {% else %}
-            <li class="page-item disabled">
-            <a class="page-link" href="#" tabindex="-1" aria-disabled="True">&raquo;</a>
-          </li>
+            <a class="disabled" href="#" tabindex="-1" aria-disabled="True">&raquo;</a>
         {% endif %}
-      </ul>
-    </nav> -->
+    </div> 
 
     <!-- end of pagination -->
-
-
 
 
 {% endblock content %}
