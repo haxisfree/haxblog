@@ -3,11 +3,48 @@
 
 
 {% block content %}
-    <div class="post-entry">
-      {% if post.cover %}  
-        <img class="bookcover" src="{{ post.cover.url }}" alt="{{ post.title }}">
-      {% endif %}
-        <h2>{{post.title}}</h2>
-        <p>{{post.body}}</p>
+    <div class="post-entry wrapper">
+      <div class="row">
+        <div class="col-xs-12 col-sm-7">
+          <div id="detail">
+            <h1>{{post.title}}</h1>
+            <br>
+            <h3><span>Author:</span>&nbsp;{{post.author}}</h3>
+            <h3><span>Release:</span>&nbsp;{{post.year}}</h3>
+            <h3><span>Pages:</span>&nbsp;{{post.pagenum}}</h3>
+            <h3><span>Category:</span>&nbsp;{{post.category}}</h3>
+            <div>
+              <span class="fas fa-star star"></span>
+              <span class="fas fa-star star"></span>
+              <span class="fas fa-star star"></span>
+              <span class="fas fa-star-half-alt star"></span>
+              <span class="far fa-star star"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <div id="cover">
+            {% if post.cover %}  
+            <img class="bookcover" src="{{ post.cover.url }}" alt="{{ post.title }}" width="400px">
+            {% endif %}
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id="body">
+      <p>{{post.body|urlize}}</p>
+    </div>
+    <br>
+    <div id="tags">
+      <span class="fas fa-tags tagicon"></span>&nbsp;&nbsp;<span class="tag">tagONe</span>&nbsp;<span class="tag">tagTwo</span>&nbsp;<span class="tag">tagThree</span>
+    </div>
+    <br>
+    <div id="share">
+      
+    </div>
+
+        
+      
     </div>
 {% endblock content %}

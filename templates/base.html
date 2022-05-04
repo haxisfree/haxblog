@@ -7,12 +7,14 @@
         <link href="{% static 'css/grids.css' %}"rel="stylesheet" />
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://kit.fontawesome.com/552e2b20b6.js" crossorigin="anonymous"></script>
+        <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-
             <!-- start of header -->
-
+            
             <nav id="menu">
                 <ul>
                     <li class="item">
@@ -54,7 +56,7 @@
                     </li>
                 </ul>
             </nav>  
-
+           
             <!-- end of header -->
 
 
@@ -68,7 +70,7 @@
             <footer>
                     <div class="col-xs-12 col-md-4">
                         <div id="footer-logo">
-                            <img src="static/pic/HaxBlog.png" alt="" width="270px" style="opacity: 85%;">
+                            <img src="/static/pic/HaxBlog.png" alt="" width="270px" style="opacity: 85%;">
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-4 footer-column" >
@@ -88,19 +90,47 @@
                         </ul>
                         <br>
                         <div>
-                            <a href="#" class="media"><img src="static/pic/instagram.png" alt="instagram" width="40px" class="media"></a>
-                            <a href="#" class="media" ><img src="static/pic/youtube.png" alt="youtube" width="40px" class="media"></a>
-                            <a href="#" class="media"><img src="static/pic/linkedin.png" alt="linkedin" width="40px" class="media"></a>
-                            <a href="#" class="media"><img src="static/pic/telegram.png" alt="telegram" width="40px" class="media"></a>
+                            <a href="#" class="media"><img src="/static/pic/instagram.png" alt="instagram" width="40px" class="media"></a>
+                            <a href="#" class="media" ><img src="/static/pic/youtube.png" alt="youtube" width="40px" class="media"></a>
+                            <a href="#" class="media"><img src="/static/pic/linkedin.png" alt="linkedin" width="40px" class="media"></a>
+                            <a href="#" class="media"><img src="/static/pic/telegram.png" alt="telegram" width="40px" class="media"></a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-12" id="copy-right">
                         <p>© 2022 Hax Blog. All Rights Reserved</p>
                     </div>
             </footer>
-
+            <button onclick="topFunction()" id="TopBtn" class="fas fa-arrow-up"></button>
             <!-- end of footer -->
 
+            <!-- Javascript Code -->
+            <script>
+                //Scroll Back To Top Button
+                var topbutton = document.getElementById("TopBtn");
+                window.onscroll = function scrollFunction() {
+                    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) 
+                        topbutton.style.display = "block";
+                    else 
+                        topbutton.style.display = "none"; 
+                };
+                function topFunction() {
+                  document.body.scrollTop = 0;
+                  document.documentElement.scrollTop = 0;
+                }
+
+                // var canvas = document.getElementById("starfield"),
+                // context = canvas.getContext("2d"),
+                // stars = 500;
+                // for(var i=0; i<stars; i++){
+                //     var x = Math.random()*canvas.offsetWidth;
+                //     y = Math.random()*canvas.offsetHeight,
+                //     radius = Math.random()*1.2;
+                //     context.beginPath();
+                //     context.arc(x, y, radius, 0, 360);
+                //     context.fillStyle = "hsla(200,100%,50%,0.8)";
+                //     context.fill();
+                // }
+            </script>
     </body>
 </html>
 
